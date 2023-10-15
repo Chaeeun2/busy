@@ -1,0 +1,145 @@
+body {
+    background: black;
+    color: white;
+    font-family: 'Hahmlet', serif;
+    overflow: hidden;
+    transition: all 1s;
+    margin: 0;
+    padding: 0;
+}
+
+.clock {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    gap: 0.5em;
+}
+
+.number {
+    --weight: 0;
+    --width: 0;
+    position: absolute;
+    font-size: 10em;
+    text-align: center;
+    display: inline-block;
+    line-height: 0.8;
+    letter-spacing: -0.03em;
+    background: black;
+    padding: 0.08em 0.07em 0.25em 0.07em;
+    transition: all 1s;
+    margin: 0;
+    z-index: 99;
+
+
+    font-variation-settings: 'wght' var(--weight), 'wdth' var(--width);
+
+    -ms-user-select: none;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+button {
+    font-size: 2.5em;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 0;
+    position: absolute;
+    bottom: 0.9em;
+    right: 0.8em;
+    letter-spacing: -0.03em;
+    background: white;
+}
+
+.stop:hover {
+    background: red;
+    color: white;
+    transition: all 0.3s;
+}
+
+.go:hover {
+    background: blue;
+    color: white;
+    transition: all 0.3s;
+}
+
+.circle {
+    position: absolute;
+    width: 2.5em;
+    height: 2.5em;
+    background: black;
+    border-radius: 100em;
+
+    animation-name: move;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+}
+
+.circle2 {
+    position: absolute;
+    width: 2.5em;
+    height: 2.5em;
+    background: white;
+    border-radius: 100em;
+
+    animation-name: move2;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+}
+
+@keyframes move {
+
+    /* keyframe */
+    0% {
+        bottom: 100%;
+        opacity: 100%
+    }
+
+    40% {
+        bottom: 0%;
+    }
+
+    /* keyframe */
+    70% {
+        bottom: 0%;
+        opacity: 100%
+    }
+
+    100% {
+        bottom: 0%;
+        opacity: 0%
+    }
+}
+
+@keyframes move2 {
+
+    /* keyframe */
+    0% {
+        bottom: 100%;
+    }
+
+    100% {
+        bottom: 0%;
+    }
+}
+
+@media (max-width: 800px) {
+    .number {
+        scale: 60%;
+
+    }
+
+    .clock {
+        flex-wrap: wrap;
+        gap: 0.5em;
+    }
+}
